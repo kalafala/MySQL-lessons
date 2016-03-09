@@ -1,0 +1,43 @@
+$mysql_dir = /usr/local/mysql/
+
+To start mysql server:  sudo $mysql_dir/bin/mysqld_safe
+	(Can also do so from Settings->mysql)
+
+To shutdown mysql server: $mysql_dir/bin/mysqladmin -u root -p shutdown
+	On commands such as above, -u means user, -p means use-password and "shutdown" is simply the command we are passing
+	Since "root" has a password established, we generally need the -p argument
+
+To show available tables: $mysql_dir/bin/mysqlshow -u root -p mysql
+
+# Credit:  https://www.youtube.com/watch?v=FAXhXI2Gxdc
+
+To enter mysql: $mysql_dir/bin/mysql -u root -p
+
+
+	To show databases: show databases;
+
+	To create a database:  create database mytest;
+
+	To use a database:  use mytest;	
+
+	To show tables: show tables;
+
+	Example of how to create a table: 
+create table mytable(id int(11) unsigned auto_increment primary key not null, username varchar(25) not null, passwd varchar(25) not null, email varchar(25) not null);
+
+	To describe a table:  describe mytable;
+
+	To insert values, e.g.,: insert into mytable(username, passwd, email)
+    -> values('user1','passwd1','email1@domain.com');
+
+	To print entire table:  select * from mytable;
+
+	To print a specific column: select username from mytable;
+
+	To select a specific row:  select * from mytable where id=2;
+				   select * from mytable where username='user2'; <== note use of single-quotes for varchar username column
+
+	To control ordering:  select * from mytable order by id DESC;
+
+	To update a table entry:  update mytable  set passwd='passwd44' where id=4;
+
