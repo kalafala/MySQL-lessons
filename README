@@ -13,48 +13,5 @@ To show available tables: $mysql_dir/bin/mysqlshow -u root -p mysql
 
 To enter mysql: $mysql_dir/bin/mysql -u root -p
 
+See lessons.sql for lots of examples.
 
-	To show databases: show databases;
-
-	To create a database:  create database mytest;
- 
-	To use a database:  use mytest;	
-
-	To show tables: show tables;
-
-	Example of how to create a table: 
-create table mytable(id int(11) unsigned auto_increment primary key not null, username varchar(25) not null, passwd varchar(25) not null, email varchar(25) not null);
-
-	To describe a table:  describe mytable;
-
-	To insert values, e.g.,: insert into mytable(username, passwd, email)
-    -> values('user1','passwd1','email1@domain.com');
-
-	To print entire table:  select * from mytable;
-
-	To print a specific column: select username from mytable;
-
-	To select a specific row:  select * from mytable where id=2;
-				   select * from mytable where username='user2'; <== note use of single-quotes for varchar username column, needs to be an _exact_ match
-					// If text contains a literal quote, needs to be backslash'd
-				   select * from mytable where id in (4,5,6)
-				   select * from mytable where 1 order by rand() limit 1;
-				   select distinct username from mytable; // Displays only user names and those that are distinct
-				select distinct username,passwd from mytable; // Displays only username,passwd and those _combinations_ that are distinct
-				select max(id) from mytable;
-
-	To control ordering:  select * from mytable order by id DESC;
-
-	To update a table entry:  update mytable  set passwd='passwd44' where id=4;
-
-	To update all entries:  update mytable set passwd 'passwd';
-
-	Another example updating a particular table entry:  update mytable set passwd='passwd1' where username='user1';
-
-	To delete table entries:  delete from mytable where username='user3';
-
-	To delete multiple table entries:  delete from mytable where username IN ('user1','user2');
-
-	To delete a column: alter table mytable drop column email;
-
-	To delete entire database: drop database mytest2;
