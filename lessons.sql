@@ -31,3 +31,9 @@ select distinct username,passwd from mytable; # distinct combinations of user/pa
 select max(id) from mytable;
 
 # To delete a column: alter table mytable drop column email;
+
+select * from mytable where username RLIKE('us');
+select count(*) from mytable where username RLIKE('us');
+select * from mytable where username RLIKE('us') and username RLIKE('r4');
+select * from mytable where username RLIKE('r3') or username RLIKE('r4');
+select * from mytable where username RLIKE('r3') or (username RLIKE('user') and passwd RLIKE('wd4'));
